@@ -27,14 +27,18 @@ SNORT permet d’analyser le trafic réseau de type IP, il peut être configuré
 • le mode Prévention des intrusion réseau (IPS), c’est SNORT-inline.
 
 ## Les règles de SNORT :
-sont composées de deux parties distinctes : le header et les options. 
+sont composées de deux parties distinctes : le header et les options.
+
 Le header permet de spécifier le type d’alerte à générer (alert, log et pass) et d’indiquer les champs de base nécessaires au filtrage : le protocole ainsi que les adresses IP et ports sources et destination. 
+
 Les options, spécifiées entre parenthèses, permettent d’affiner l’analyse, en décomposant la signature en différentes valeurs à observer parmi certains champs du header ou parmi les données.
-Exemple de règle : 
 
-Alert tcp any any -> 192.168.1.0/24 80 (flags :A ;\content : “passwd”; msg: “detection de `passwd’ “ ;) Cette règle permet de générer un message d’alerte “detection de passwd” lorsque le trafic à destination d’une machine du réseau local 192.168.1.0/24 vers le port 80, contient la chaîne « passwd » (spécifié par l’utilisation du mot-clé « content »), et que le flag ACK du header TCP est activé (flags : A).
+## Exemple de règle : 
 
-Installation :
+Alert tcp any any -> 192.168.1.0/24 80 (flags :A ;\content : “passwd”; msg: “detection de passwd ;)
+Cette règle permet de générer un message d’alerte “detection de passwd” lorsque le trafic à destination d’une machine du réseau local 192.168.1.0/24 vers le port 80, contient la chaîne « passwd » (spécifié par l’utilisation du mot-clé « content »), et que le flag ACK du header TCP est activé (flags : A).
+
+## Installation :
 Il faut installer les packege suivant avant d’utilisation de SNORT
 LIBCAP 
 Pcre 
