@@ -22,6 +22,7 @@ SNORT permet d’analyser le trafic réseau de type IP, il peut être configuré
 • le mode sniffer : dans ce mode, SNORT lit les paquets circulant sur le réseau et les affiche d’une façon continue sur l’écran ;
 
 • Le mode « packet logger » : dans ce mode SNORT journalise le trafic réseau dans des répertoires sur le disque ; Mise en place d’une Sonde SNORT - 3 – 
+
 • le mode détecteur d’intrusion réseau (NIDS) : dans ce mode, SNORT analyse le trafic du réseau, compare ce trafic à des règles déjà définies par l’utilisateur et établi des actions à exécuter ;
 
 • le mode Prévention des intrusion réseau (IPS), c’est SNORT-inline.
@@ -46,4 +47,25 @@ Libnet
 BATNYARD 
 DAQ
 
+Apt-get install snort 
+<img src="imgs/A1.png" alt="" style="  width: 100%;height: 400px;"/> 
+Ifconfig
+<img src="imgs/a1.png" alt="" style="  width: 100%;height: 400px;"/> 
+Sudo gedit /etc/snort/snort.cong 
+<img src="imgs/a3.png" alt="" style="  width: 100%;height: 400px;"/> 
+Pour spécifier l’adresse de réseau a analyser (any pour tout les reseau connecter au reseaux) :
+<img src="imgs/a4.png" alt="" style="  width: 100%;height: 400px;"/> 
+Pour active les règle il faut enlever les commentaires sur la règle spécifique : 
+<img src="imgs/a5.png" alt="" style="  width: 100%;height: 400px;"/> 
+Sudo snort -A console -q -u snort -g snort -c /etc/snort.conf -ens33
+<img src="imgs/a6.png" alt="" style="  width: 100%;height: 400px;"/> 
 
+Machine attack (192.168.40.134 /24): 
+Ataque nmap :
+Nmap 192.168.40.135 
+
+Autre ataque avec le PIRATA 1.0.3
+<img src="imgs/a7.png" alt="" style="  width: 100%;height: 400px;"/> 
+
+Snort détecte les diffèrent types d’attaque : 
+<img src="imgs/a8.png" alt="" style="  width: 100%;height: 400px;"/> 
